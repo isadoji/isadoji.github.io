@@ -56,14 +56,23 @@ You can find more details about my projects on my [GitHub Projects Page](https:/
 - **Technologies Used:** Python, Scikit-learn, Pandas, Ploty, Streamlit
 - **Link:** [Vehicle Price](https://github.com/isadoji/projects/tree/main/5)
 
-### Project 1: Data Analysis in High-Energy Physics
-- **Description:** Developed data analysis workflows for high-energy particle physics experiments.
-- **Technologies Used:** Python, ROOT-CERN, Jupyter Notebooks
+### Project 2: Oil Extraction Analysis
+- **Description**Machine Learning model to predict the amount of oil extracted.
+- **Technologies Used:** Python, Scikit-learn, Pandas, Matplotlib, Scipy,Numpy, GridSearchCV
+- **Link:** [Vehicle Price](https://github.com/isadoji/projects/tree/main/10)
 
-### Project 2: Machine Learning for Predictive Maintenance
-- **Description:** Implemented machine learning models to predict equipment failures in industrial settings.
-- **Technologies Used:** Python, Scikit-learn, Pandas
+### Project 3: Movie Reviews
+- **Description**	Classify movie reviews with ML models.
+- **Technologies Used:** Python, Scikit-learn, Pandas, TQMD, NLTK, TF-IDF, BERT, Spacy, Torch, Transformers
+- **Link:** [Vehicle Price](https://github.com/isadoji/projects/tree/main/14)
 
-### Project 3: Optimization Algorithms for Scientific Simulations
-- **Description:** Created optimization algorithms to enhance the performance of scientific simulations.
-- **Technologies Used:** C++, Fortran, Python
+### Project 4: Age determination
+- **Description**	Image age determination with ML modelos.
+- **Technologies Used:** Python, Scikit-learn, Pandas, Tensorflow
+- **Link:** [Vehicle Price](https://github.com/isadoji/projects/tree/main/15)
+
+### Project 5: Photons
+- **Description**Numerical calculations from prompt-photon production by magnetic fields in heavy-ion collisions.
+- **Technologies Used:** Mathematica,ROOT(C++)
+- **Link:** [Vehicle Price](https://github.com/isadoji/photons)
+
