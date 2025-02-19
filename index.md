@@ -3,7 +3,7 @@ layout: default
 title: Isabel Domínguez Jiménez - Data Scientist & Physicist
 ---
 
-![Profile Image](isadoji.jpeg)
+![Profile Image](https://raw.githubusercontent.com/isadoji/isadoji.github.io/main/isadoji.jpeg)
 
 **Physics, Programmer, Developer, and Data Scientist**
 
