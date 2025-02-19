@@ -51,6 +51,10 @@ Skilled in advanced programming, data analysis, and machine learning, I bring an
 ## Projects
 You can find more details about my projects on my [GitHub Projects Page](https://github.com/isadoji/projects).
 
+### Project 1: [Vehicle Price] (https://github.com/isadoji/projects/tree/main/5)
+- **Description** Determine the factors that influence the price of a vehicle and creation and management of a virtual Python environment, development of a web application and its deployment in a Render cloud service that will make it accessible to the public.
+- **Technologies Used:** Python, Scikit-learn, Pandas, Ploty, Streamlit
+
 ### Project 1: Data Analysis in High-Energy Physics
 - **Description:** Developed data analysis workflows for high-energy particle physics experiments.
 - **Technologies Used:** Python, ROOT-CERN, Jupyter Notebooks
