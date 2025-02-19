@@ -47,3 +47,18 @@ Skilled in advanced programming, data analysis, and machine learning, I bring an
 - **National Research System - CONAHCyT Level II (2023–2027)**
 - **Desirable Profile for Full-Time Professors (2023–2026)**
 - **Academic Group, Consolidated Level "Decision Support Systems" (2022–2027)**
+
+## Projects
+You can find more details about my projects on my [GitHub Projects Page](https://github.com/isadoji/projects).
+
+### Project 1: Data Analysis in High-Energy Physics
+- **Description:** Developed data analysis workflows for high-energy particle physics experiments.
+- **Technologies Used:** Python, ROOT-CERN, Jupyter Notebooks
+
+### Project 2: Machine Learning for Predictive Maintenance
+- **Description:** Implemented machine learning models to predict equipment failures in industrial settings.
+- **Technologies Used:** Python, Scikit-learn, Pandas
+
+### Project 3: Optimization Algorithms for Scientific Simulations
+- **Description:** Created optimization algorithms to enhance the performance of scientific simulations.
+- **Technologies Used:** C++, Fortran, Python
