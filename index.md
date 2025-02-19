@@ -59,20 +59,20 @@ You can find more details about my projects on my [GitHub Projects Page](https:/
 ### Project 2: Oil Extraction Analysis
 - **Description**Machine Learning model to predict the amount of oil extracted.
 - **Technologies Used:** Python, Scikit-learn, Pandas, Matplotlib, Scipy,Numpy, GridSearchCV
-- **Link:** [Vehicle Price](https://github.com/isadoji/projects/tree/main/10)
+- **Link:** [Oil Extraction Analysis](https://github.com/isadoji/projects/tree/main/10)
 
 ### Project 3: Movie Reviews
 - **Description**	Classify movie reviews with ML models.
 - **Technologies Used:** Python, Scikit-learn, Pandas, TQMD, NLTK, TF-IDF, BERT, Spacy, Torch, Transformers
-- **Link:** [Vehicle Price](https://github.com/isadoji/projects/tree/main/14)
+- **Link:** [Movie Reviewse](https://github.com/isadoji/projects/tree/main/14)
 
 ### Project 4: Age determination
 - **Description**	Image age determination with ML modelos.
 - **Technologies Used:** Python, Scikit-learn, Pandas, Tensorflow
-- **Link:** [Vehicle Price](https://github.com/isadoji/projects/tree/main/15)
+- **Link:** [Age determination](https://github.com/isadoji/projects/tree/main/15)
 
 ### Project 5: Photons
 - **Description**Numerical calculations from prompt-photon production by magnetic fields in heavy-ion collisions.
 - **Technologies Used:** Mathematica,ROOT(C++)
-- **Link:** [Vehicle Price](https://github.com/isadoji/photons)
+- **Link:** [Photons](https://github.com/isadoji/photons)
 
