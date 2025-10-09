@@ -1,78 +1,123 @@
 ---
 layout: default
-title: Isabel Domínguez Jiménez - Data Scientist & Physicist
+title: Isabel Domínguez Jiménez – Data Scientist & Physicist
 ---
-
 ![Profile Image](https://raw.githubusercontent.com/isadoji/isadoji.github.io/main/isadoji.jpeg)
 
-**Physics, Programmer, Developer, and Data Scientist**
+# Isabel Domínguez Jiménez
 
-- **Location:** México  
-- **Email:** [isadoji@gmail.com](mailto:isadoji@gmail.com)  
-- **LinkedIn:** [isadoji404](https://www.linkedin.com/in/isadoji404/)  
-- **GitHub:** [isadoji](https://github.com/isadoji)  
+**Data Scientist | Physicist | Educator | Researcher**
 
-## Profile
-I am a data scientist and educator with 12+ years of experience in higher education and scientific research.
+📍 México | ✉️ [isadoji@gmail.com](mailto:isadoji@gmail.com)
+🔗 [LinkedIn](https://www.linkedin.com/in/isadoji404/) | 💻 [GitHub](https://github.com/isadoji)
 
-Skilled in advanced programming, data analysis, and machine learning, I bring an analytical approach to solving complex problems.
+---
 
-## Technical Skills
-- Python (NumPy, Pandas, Matplotlib, Scikit-learn, Seaborn, Keras)
-- C++ (ROOT-CERN), Fortran
-- SQL, Tableau, Jupyter Notebooks, GitHub
-- Google Suite, Slack, Trello, Moodle
-- Languages: Spanish (Native), English (B2)
+## 🎯 Professional Summary
 
-## Professional Experience
-### Full-Time Professor and Researcher - Autonomous University of Sinaloa (2013–2024)
-- Taught 50+ courses, including Computational Physics and Optimization.
-- Supervised 11 theses (BSc, MSc, PhD) and conducted workshops on data analysis.
-- Developed specialized software for scientific simulations.
+I am a **Data Scientist and Physicist** with over 12 years of experience in research, teaching, and computational modeling.
+My career bridges **academia and applied data science**, combining scientific rigor with machine learning, predictive modeling, and data-driven decision making.
 
-### Visiting Professor - University of Colima (2022–2023)
-- Developed machine learning models (Logistic Regression, Decision Trees, Neural Networks) using Python.
-- Enhanced data analysis workflows in high-energy particle physics experiments.
+I specialize in **data analysis, AI model development, and process optimization**, using tools such as Python, Scikit-learn, and TensorFlow.
+I am passionate about transforming complex data into actionable insights — whether in science, education, or business intelligence contexts.
 
-### Postdoctoral Researcher - Nuclear Sciences Institute, UNAM (2011–2012)
-- Optimized Monte Carlo simulations in C++ for high-energy physics research.
+---
 
-## Education
-- **Bootcamp in Data Science** - TripleTen (2024)
-- **PhD in Physics** - National Autonomous University of Mexico (2011)
-- **Master’s in Physics** - CINVESTAV, Mérida (2003)
-- **Bachelor’s in Physics** - Autonomous University of the State of Morelos (2001)
+## 🧠 Core Skills
 
-## Awards
-- **National Research System - CONAHCyT Level II (2023–2027)**
-- **Desirable Profile for Full-Time Professors (2023–2026)**
-- **Academic Group, Consolidated Level "Decision Support Systems" (2022–2027)**
+- **Programming:** Python (NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, TensorFlow, PyTorch)
+- **Data Science:** ML pipelines, feature engineering, model evaluation, data visualization
+- **Databases & Tools:** SQL, Tableau, Jupyter Notebooks, Git, Streamlit, Render, Docker
+- **Languages:** Spanish (Native), English (B2)
+- **Soft Skills:** Analytical thinking, mentoring, communication, leadership in multidisciplinary projects
 
-## Projects
-You can find more details about my projects on my [GitHub Projects Page](https://github.com/isadoji/projects).
+---
 
-### Project 1: Vehicle Price
-- **Description** Determine the factors that influence the price of a vehicle and creation and management of a virtual Python environment, development of a web application and its deployment in a Render cloud service that will make it accessible to the public.
-- **Technologies Used:** Python, Scikit-learn, Pandas, Ploty, Streamlit
-- **Link:** [Vehicle Price](https://github.com/isadoji/projects/tree/main/5)
+## 💼 Experience
 
-### Project 2: Oil Extraction Analysis
-- **Description**Machine Learning model to predict the amount of oil extracted.
-- **Technologies Used:** Python, Scikit-learn, Pandas, Matplotlib, Scipy,Numpy, GridSearchCV
-- **Link:** [Oil Extraction Analysis](https://github.com/isadoji/projects/tree/main/10)
+### **Full-Time Professor & Researcher**
 
-### Project 3: Movie Reviews
-- **Description**	Classify movie reviews with ML models.
-- **Technologies Used:** Python, Scikit-learn, Pandas, TQMD, NLTK, TF-IDF, BERT, Spacy, Torch, Transformers
-- **Link:** [Movie Reviewse](https://github.com/isadoji/projects/tree/main/14)
+*Universidad Autónoma de Sinaloa (2013–Present)*
 
-### Project 4: Age determination
-- **Description**	Image age determination with ML modelos.
-- **Technologies Used:** Python, Scikit-learn, Pandas, Tensorflow
-- **Link:** [Age determination](https://github.com/isadoji/projects/tree/main/15)
+- Designed and taught 50+ courses in Computational Physics, Optimization, and Data Analysis.
+- Supervised 11 theses (BSc–PhD) integrating Python and machine learning into research workflows.
+- Developed statistical models for predicting physical phenomena and structured datasets for simulation results.
+- Collaborated in data-driven projects with a focus on education and scientific dissemination.
 
-### Project 5: Photons
-- **Description**Numerical calculations from prompt-photon production by magnetic fields in heavy-ion collisions.
-- **Technologies Used:** Mathematica,ROOT(C++)
-- **Link:** [Photons](https://github.com/isadoji/photons)
+### **Visiting Professor**
 
+*Universidad de Colima (2022–2023)*
+
+- Implemented predictive ML models (logistic regression, decision trees, neural networks).
+- Enhanced analysis workflows in particle-physics collaborations (ROOT-CERN, Python).
+
+### **Postdoctoral Researcher**
+
+*Instituto de Ciencias Nucleares, UNAM (2011–2012)*
+
+- Optimized Monte Carlo simulations (C++/Fortran) for high-energy physics experiments.
+- Applied statistical modeling to evaluate rare-event phenomena.
+
+---
+
+## 🎓 Education
+
+- **Bootcamp in Data Science** – *TripleTen (2024)*
+- **PhD in Physics** – *UNAM (2011)*
+- **Master’s in Physics** – *CINVESTAV Mérida (2003)*
+- **Bachelor’s in Physics** – *UAEM (2001)*
+
+---
+
+## 🏆 Recognitions
+
+- National Research System – CONAHCyT **Level II (2023–2027)**
+- Desirable Profile for Full-Time Professors (2023–2026)
+- Consolidated Academic Group *“Decision Support Systems”* (2022–2027)
+
+---
+
+## 🚀 Featured Projects
+
+You can explore my portfolio at my [GitHub Projects Page](https://github.com/isadoji/projects).
+
+### 🔹 [Vehicle Price Prediction](https://github.com/isadoji/projects/tree/main/5)
+
+Predicting vehicle prices using machine learning with feature selection and web deployment on Render.
+**Tech:** Python, Scikit-learn, Pandas, Streamlit
+
+### 🔹 [Oil Extraction Analysis](https://github.com/isadoji/projects/tree/main/10)
+
+Regression and optimization model to predict oil extraction volume.
+**Tech:** Scikit-learn, Numpy, GridSearchCV
+
+### 🔹 [Movie Review Classification](https://github.com/isadoji/projects/tree/main/14)
+
+Sentiment analysis using NLP models and transformers (BERT, TF-IDF).
+**Tech:** Python, NLTK, Spacy, Torch
+
+### 🔹 [Age Determination](https://github.com/isadoji/projects/tree/main/15)
+
+Computer vision model for age prediction from facial images.
+**Tech:** TensorFlow, Scikit-learn
+
+### 🔹 [Photon Production Simulation](https://github.com/isadoji/photons)
+
+Numerical modeling of photon emission in magnetic-field environments.
+**Tech:** ROOT (C++), Mathematica
+
+---
+
+## 🌟 Career Objective
+
+My goal is to **join a forward-thinking organization or research-driven company** where I can apply data science and machine learning to create value and optimize decision-making.
+I am especially interested in roles that combine **data analytics, AI research, and interdisciplinary collaboration**.
+
+---
+
+> *“I believe in the power of data to reveal patterns, inspire solutions, and drive intelligent change.”*
+
+---
+
+📬 **Contact:** [isadoji@gmail.com](mailto:isadoji@gmail.com)
+🔗 **Portfolio:** [github.com/isadoji](https://github.com/isadoji)
