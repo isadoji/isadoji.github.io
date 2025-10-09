@@ -7,54 +7,56 @@
   <style>
     body {
       font-family: "Segoe UI", Roboto, sans-serif;
-      background: linear-gradient(135deg, #0a1f44, #1b3b6f);
-      color: #f8f9fa;
+      background: #f7f8fa;
+      color: #222;
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
     }
-    .container {
-      max-width: 850px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-      padding: 2.5rem;
-      margin: 2rem;
-    }
-    .profile {
+    header {
       text-align: center;
+      background: linear-gradient(90deg, #15304a, #1b4d7a);
+      color: #f8f9fa;
+      padding: 2rem 1rem;
     }
-    .profile img {
-      width: 140px;
-      height: 140px;
+    header img {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       border: 3px solid #ffdf91;
       object-fit: cover;
       margin-bottom: 1rem;
     }
-    h1 {
-      font-size: 1.8rem;
+    header h1 {
+      margin: 0.2rem;
       color: #ffdf91;
-      margin: 0.3rem 0;
+      font-size: 1.8rem;
     }
-    h2 {
+    header h2 {
+      margin: 0.2rem;
       font-weight: 400;
-      color: #a9c4e2;
-      margin-top: 0;
+      color: #cfe4ff;
+    }
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+    .column {
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 2rem;
     }
     h3 {
-      color: #ffdf91;
-      border-bottom: 1px solid #2a4e7a;
+      color: #1b4d7a;
+      border-bottom: 2px solid #ffdf91;
       padding-bottom: 0.3rem;
     }
-    p, li {
-      line-height: 1.6;
-    }
     a {
-      color: #7ec8ff;
+      color: #1b4d7a;
       text-decoration: none;
     }
     a:hover {
@@ -63,7 +65,7 @@
     .button {
       display: inline-block;
       background: #ffdf91;
-      color: #0a1f44;
+      color: #15304a;
       padding: 0.6rem 1.2rem;
       border-radius: 10px;
       text-decoration: none;
@@ -74,158 +76,99 @@
     .button:hover {
       background: #ffeabf;
     }
-    .lang-toggle {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 1rem;
+    ul {
+      line-height: 1.6;
     }
-    .lang-toggle button {
-      background: none;
-      border: 2px solid #ffdf91;
-      color: #ffdf91;
-      border-radius: 8px;
-      margin-left: 5px;
-      padding: 5px 10px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .lang-toggle button:hover {
-      background-color: #ffdf91;
-      color: #0a1f44;
-    }
-    .footer {
+    footer {
       text-align: center;
-      font-size: 0.85rem;
-      margin-top: 2rem;
-      color: #ccc;
+      padding: 2rem;
+      color: #555;
+      font-size: 0.9rem;
+      border-top: 1px solid #ccc;
     }
-    [lang="es"] { display: none; }
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      .container {
-        padding: 1.5rem;
-      }
-      .lang-toggle {
-        top: 10px;
-        right: 15px;
+    @media (max-width: 850px) {
+      .columns {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="lang-toggle">
-    <button onclick="setLang('en')">🇬🇧 EN</button>
-    <button onclick="setLang('es')">🇪🇸 ES</button>
-  </div>
+  <header>
+    <img src="isadoji.jpeg" alt="Isabel Domínguez Jiménez" />
+    <h1>Isabel Domínguez Jiménez</h1>
+    <h2>Data Scientist · Physicist · Educator · Researcher</h2>
+    <p>📍 Mexico | ✉️ <a href="mailto:isadoji@gmail.com">isadoji@gmail.com</a> | 
+      <a href="https://www.linkedin.com/in/isadoji404/" style="color:#ffdf91;">LinkedIn</a> | 
+      <a href="https://github.com/isadoji" style="color:#ffdf91;">GitHub</a></p>
+    <a href="IsabelDominguez_CV.pdf" class="button" target="_blank">📄 Download CV</a>
+  </header>
 
-  <div class="container" lang="en">
-    <div class="profile">
-      <img src="isadoji.jpeg" alt="Isabel Domínguez Jiménez" />
-      <h1>Isabel Domínguez Jiménez</h1>
-      <h2>Data Scientist | Physicist | Educator | Researcher</h2>
-      <p>📍 México | ✉️ <a href="mailto:isadoji@gmail.com">isadoji@gmail.com</a> | 
-      <a href="https://www.linkedin.com/in/isadoji404/">LinkedIn</a> | 
-      <a href="https://github.com/isadoji">GitHub</a></p>
-      <a href="IsabelDominguez_CV.pdf" class="button" target="_blank">📄 Download CV</a>
+  <div class="columns">
+    <!-- Left Column: Profile and Skills -->
+    <div class="column">
+      <h3>Profile</h3>
+      <p>I am a Data Scientist and Physicist with more than 12 years of experience in research, teaching, and computational modeling. I combine scientific rigor with machine learning and data analytics to build predictive models and data-driven solutions for complex problems.</p>
+
+      <h3>Technical Skills</h3>
+      <ul>
+        <li><strong>Programming:</strong> Python, C++, SQL</li>
+        <li><strong>Libraries:</strong> Pandas, Scikit-learn, TensorFlow, PyTorch, Seaborn, Matplotlib</li>
+        <li><strong>Tools:</strong> Jupyter, Streamlit, Tableau, Docker, GitHub, Render</li>
+        <li><strong>Languages:</strong> Spanish (Native), English (B2)</li>
+      </ul>
+
+      <h3>Experience</h3>
+      <p><strong>Professor & Researcher</strong> — Universidad Autónoma de Sinaloa (2013–Present)<br>
+      Designed and taught 50+ courses in Computational Physics and Data Analysis. Supervised 11 theses integrating Python and machine learning into research workflows.</p>
+
+      <p><strong>Visiting Professor</strong> — Universidad de Colima (2022–2023)<br>
+      Applied ML techniques to physical simulations and improved data workflows in research collaborations.</p>
+
+      <p><strong>Postdoctoral Researcher</strong> — UNAM (2011–2012)<br>
+      Developed Monte Carlo models and optimized algorithms for high-energy physics data.</p>
+
+      <h3>Education</h3>
+      <ul>
+        <li>Bootcamp in Data Science – TripleTen (2024)</li>
+        <li>PhD in Physics – UNAM (2011)</li>
+        <li>Master’s in Physics – CINVESTAV Mérida (2003)</li>
+        <li>Bachelor’s in Physics – UAEM (2001)</li>
+      </ul>
     </div>
 
-    <h3>Professional Summary</h3>
-    <p>I am a Data Scientist and Physicist with 12+ years of experience in research, teaching, and data analysis. My work bridges scientific rigor and applied machine learning to extract insights from complex data and develop predictive models that support decision-making.</p>
+    <!-- Right Column: Projects -->
+    <div class="column">
+      <h3>Featured Projects</h3>
 
-    <h3>Core Skills</h3>
-    <ul>
-      <li><strong>Programming:</strong> Python, C++, SQL</li>
-      <li><strong>Libraries:</strong> Pandas, Scikit-learn, TensorFlow, PyTorch, Seaborn, Matplotlib</li>
-      <li><strong>Tools:</strong> Jupyter, Tableau, GitHub, Streamlit, Render, Docker</li>
-      <li><strong>Languages:</strong> Spanish (Native), English (B2)</li>
-    </ul>
+      <h4><a href="https://github.com/isadoji/projects/tree/main/5">Vehicle Price Prediction</a></h4>
+      <p>Machine learning model to predict vehicle prices based on key features, deployed on Render using Streamlit.</p>
+      <p><em>Tech:</em> Python, Scikit-learn, Pandas, Streamlit</p>
 
-    <h3>Experience</h3>
-    <p><strong>Professor & Researcher</strong> – Universidad Autónoma de Sinaloa (2013–Present)</p>
-    <ul>
-      <li>Taught 50+ courses in Computational Physics and Data Analysis.</li>
-      <li>Supervised 11 theses integrating Python and ML into research workflows.</li>
-      <li>Developed predictive and simulation models using scientific and statistical tools.</li>
-    </ul>
+      <h4><a href="https://github.com/isadoji/projects/tree/main/10">Oil Extraction Analysis</a></h4>
+      <p>Regression and optimization model to forecast oil extraction volumes.</p>
+      <p><em>Tech:</em> Scikit-learn, Numpy, GridSearchCV</p>
 
-    <p><strong>Visiting Professor</strong> – Universidad de Colima (2022–2023)</p>
-    <ul>
-      <li>Implemented predictive ML models for physics experiments.</li>
-      <li>Enhanced workflows for large-scale data analysis.</li>
-    </ul>
+      <h4><a href="https://github.com/isadoji/projects/tree/main/14">Movie Review Classification</a></h4>
+      <p>Sentiment analysis using NLP with TF-IDF, BERT and SpaCy to classify movie reviews.</p>
+      <p><em>Tech:</em> Python, NLTK, Transformers, Torch</p>
 
-    <p><strong>Postdoctoral Researcher</strong> – UNAM (2011–2012)</p>
-    <ul>
-      <li>Developed Monte Carlo models and optimized algorithms for high-energy physics.</li>
-    </ul>
+      <h4><a href="https://github.com/isadoji/projects/tree/main/15">Age Determination</a></h4>
+      <p>Computer vision model to predict age from facial images using CNNs.</p>
+      <p><em>Tech:</em> TensorFlow, Scikit-learn</p>
 
-    <h3>Career Objective</h3>
-    <p>I aim to join a forward-thinking organization where I can apply my expertise in data science and AI to drive innovation, optimize processes, and create actionable insights.</p>
+      <h4><a href="https://github.com/isadoji/photons">Photon Production Simulation</a></h4>
+      <p>Numerical modeling of photon emission in magnetic-field environments for high-energy physics.</p>
+      <p><em>Tech:</em> ROOT (C++), Mathematica</p>
 
-    <div class="footer">
-      © 2025 | Isabel Domínguez Jiménez · Built with ❤️ and Data
-    </div>
-  </div>
-
-  <!-- SPANISH VERSION -->
-  <div class="container" lang="es">
-    <div class="profile">
-      <img src="isadoji.jpeg" alt="Isabel Domínguez Jiménez" />
-      <h1>Isabel Domínguez Jiménez</h1>
-      <h2>Científica de Datos | Física | Educadora | Investigadora</h2>
-      <p>📍 México | ✉️ <a href="mailto:isadoji@gmail.com">isadoji@gmail.com</a> | 
-      <a href="https://www.linkedin.com/in/isadoji404/">LinkedIn</a> | 
-      <a href="https://github.com/isadoji">GitHub</a></p>
-      <a href="IsabelDominguez_CV.pdf" class="button" target="_blank">📄 Descargar CV</a>
-    </div>
-
-    <h3>Perfil Profesional</h3>
-    <p>Soy científica de datos y física con más de 12 años de experiencia en investigación, docencia y análisis de datos. Combino el rigor científico con la inteligencia artificial aplicada para transformar información compleja en conocimiento útil y soluciones prácticas.</p>
-
-    <h3>Habilidades Principales</h3>
-    <ul>
-      <li><strong>Programación:</strong> Python, C++, SQL</li>
-      <li><strong>Librerías:</strong> Pandas, Scikit-learn, TensorFlow, PyTorch, Seaborn, Matplotlib</li>
-      <li><strong>Herramientas:</strong> Jupyter, Tableau, GitHub, Streamlit, Render, Docker</li>
-      <li><strong>Idiomas:</strong> Español (Nativo), Inglés (B2)</li>
-    </ul>
-
-    <h3>Experiencia Profesional</h3>
-    <p><strong>Profesora e Investigadora</strong> – Universidad Autónoma de Sinaloa (2013–Presente)</p>
-    <ul>
-      <li>Diseñé e impartí más de 50 cursos de Física Computacional y Análisis de Datos.</li>
-      <li>Dirigí 11 tesis incorporando Python y aprendizaje automático en investigación científica.</li>
-      <li>Desarrollé modelos predictivos y simulaciones basados en datos experimentales.</li>
-    </ul>
-
-    <p><strong>Profesora Visitante</strong> – Universidad de Colima (2022–2023)</p>
-    <ul>
-      <li>Implementé modelos de aprendizaje automático aplicados a física experimental.</li>
-      <li>Optimicé flujos de trabajo de análisis de datos de gran escala.</li>
-    </ul>
-
-    <p><strong>Investigadora Postdoctoral</strong> – UNAM (2011–2012)</p>
-    <ul>
-      <li>Desarrollé simulaciones Monte Carlo y algoritmos para experimentos de altas energías.</li>
-    </ul>
-
-    <h3>Objetivo Profesional</h3>
-    <p>Busco integrarme a una organización innovadora donde pueda aplicar mi experiencia en ciencia de datos e inteligencia artificial para generar valor, optimizar procesos y apoyar la toma de decisiones basadas en evidencia.</p>
-
-    <div class="footer">
-      © 2025 | Isabel Domínguez Jiménez · Creado con ❤️ y Ciencia de Datos
+      <h3>Career Objective</h3>
+      <p>To apply my experience in data science and machine learning to real-world problems, contributing to innovative projects that combine scientific reasoning, AI, and decision-making analytics.</p>
     </div>
   </div>
 
-  <script>
-    function setLang(lang) {
-      document.querySelectorAll('.container').forEach(c => c.style.display = 'none');
-      document.querySelector(`[lang="${lang}"]`).style.display = 'block';
-    }
-    setLang('en');
-  </script>
+  <footer>
+    © 2025 | Isabel Domínguez Jiménez · Built with ❤️ and Data
+  </footer>
 </body>
 </html>
