@@ -1,174 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Isabel Domínguez Jiménez | Data Scientist & Physicist</title>
-  <style>
-    body {
-      font-family: "Segoe UI", Roboto, sans-serif;
-      background: #f7f8fa;
-      color: #222;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      text-align: center;
-      background: linear-gradient(90deg, #15304a, #1b4d7a);
-      color: #f8f9fa;
-      padding: 2rem 1rem;
-    }
-    header img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid #ffdf91;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
-    header h1 {
-      margin: 0.2rem;
-      color: #ffdf91;
-      font-size: 1.8rem;
-    }
-    header h2 {
-      margin: 0.2rem;
-      font-weight: 400;
-      color: #cfe4ff;
-    }
-    .columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 0 2rem;
-    }
-    .column {
-      background: #ffffff;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      padding: 2rem;
-    }
-    h3 {
-      color: #1b4d7a;
-      border-bottom: 2px solid #ffdf91;
-      padding-bottom: 0.3rem;
-    }
-    a {
-      color: #1b4d7a;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .button {
-      display: inline-block;
-      background: #ffdf91;
-      color: #15304a;
-      padding: 0.6rem 1.2rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-      margin-top: 1rem;
-    }
-    .button:hover {
-      background: #ffeabf;
-    }
-    ul {
-      line-height: 1.6;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: #555;
-      font-size: 0.9rem;
-      border-top: 1px solid #ccc;
-    }
-    @media (max-width: 850px) {
-      .columns {
-        grid-template-columns: 1fr;
-        padding: 0 1rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="isadoji.jpeg" alt="Isabel Domínguez Jiménez" />
-    <h1>Isabel Domínguez Jiménez</h1>
-    <h2>Data Scientist · Physicist · Educator · Researcher</h2>
-    <p>📍 Mexico | ✉️ <a href="mailto:isadoji@gmail.com" style="color:#ffdf91;">isadoji@gmail.com</a> | 
-      <a href="https://www.linkedin.com/in/isadoji404/" style="color:#ffdf91;">LinkedIn</a> | 
-      <a href="https://github.com/isadoji" style="color:#ffdf91;">GitHub</a></p>
-    <a href="IsabelDominguez_CV.pdf" class="button" target="_blank">📄 Download CV</a>
-  </header>
+<div class="projects-section">
+  <h3>Featured Projects</h3>
+  <p class="projects-intro">
+    Below are selected projects that showcase my ability to design, train, and deploy
+    data-driven solutions using advanced analytics, machine learning, and visualization.
+  </p>
 
-  <div class="columns">
-    <!-- Left Column: Profile and Skills -->
-    <div class="column">
-      <h3>Profile</h3>
-      <p>I am a Data Scientist and Physicist with more than 12 years of experience in research, teaching, and computational modeling. I combine scientific rigor with machine learning and data analytics to build predictive models and data-driven solutions for complex problems.</p>
-
-      <h3>Technical Skills</h3>
+  <div class="project-grid">
+    <!-- Vehicle Price Prediction -->
+    <div class="project-card highlight">
+      <div class="project-header">
+        <span class="emoji">🚗</span>
+        <h4>Vehicle Price Prediction</h4>
+      </div>
+      <p>
+        Machine learning model to predict vehicle prices based on key technical and economic features.  
+        Deployed as an interactive Streamlit app on Render.
+      </p>
       <ul>
-        <li><strong>Programming:</strong> Python, C++, SQL</li>
-        <li><strong>Libraries:</strong> Pandas, Scikit-learn, TensorFlow, PyTorch, Seaborn, Matplotlib</li>
-        <li><strong>Tools:</strong> Jupyter, Streamlit, Tableau, Docker, GitHub, Render</li>
-        <li><strong>Languages:</strong> Spanish (Native), English (B2)</li>
+        <li>📈 Improved accuracy by <strong>18%</strong> after feature engineering</li>
+        <li><strong>Tech:</strong> Python, Scikit-learn, Streamlit</li>
       </ul>
-
-      <h3>Experience</h3>
-      <p><strong>Professor & Researcher</strong> — Universidad Autónoma de Sinaloa (2013–Present)<br>
-      Designed and taught 50+ courses in Computational Physics and Data Analysis. Supervised 11 theses integrating Python and machine learning into research workflows.</p>
-
-      <p><strong>Visiting Professor</strong> — Universidad de Colima (2022–2023)<br>
-      Applied ML techniques to physical simulations and improved data workflows in research collaborations.</p>
-
-      <p><strong>Postdoctoral Researcher</strong> — UNAM (2011–2012)<br>
-      Developed Monte Carlo models and optimized algorithms for high-energy physics data.</p>
-
-      <h3>Education</h3>
-      <ul>
-        <li>Bootcamp in Data Science – TripleTen (2024)</li>
-        <li>PhD in Physics – UNAM (2011)</li>
-        <li>Master’s in Physics – CINVESTAV Mérida (2003)</li>
-        <li>Bachelor’s in Physics – UAEM (2001)</li>
-      </ul>
+      <a href="https://github.com/isadoji/projects/tree/main/5" target="_blank" class="project-btn">🔗 View on GitHub</a>
     </div>
 
-    <!-- Right Column: Projects -->
-    <div class="column">
-      <h3>Featured Projects</h3>
+    <!-- Oil Extraction Analysis -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="emoji">🛢️</span>
+        <h4>Oil Extraction Analysis</h4>
+      </div>
+      <p>
+        Regression model predicting oil extraction volumes using data preprocessing, feature selection,
+        and hyperparameter optimization.
+      </p>
+      <ul>
+        <li>⚙️ Achieved <strong>R² = 0.92</strong> on test data</li>
+        <li><strong>Tech:</strong> Pandas, Scikit-learn, GridSearchCV</li>
+      </ul>
+      <a href="https://github.com/isadoji/projects/tree/main/10" target="_blank" class="project-btn">🔗 View on GitHub</a>
+    </div>
 
-      <h4><a href="https://github.com/isadoji/projects/tree/main/5">Vehicle Price Prediction</a></h4>
-      <p>Machine learning model to predict vehicle prices based on key features, deployed on Render using Streamlit.</p>
-      <p><em>Tech:</em> Python, Scikit-learn, Pandas, Streamlit</p>
+    <!-- Movie Review Classification -->
+    <div class="project-card highlight">
+      <div class="project-header">
+        <span class="emoji">🎬</span>
+        <h4>Movie Review Classification</h4>
+      </div>
+      <p>
+        NLP pipeline for sentiment classification using TF-IDF, BERT, and SpaCy.  
+        Integrated with automated data cleaning and tokenization.
+      </p>
+      <ul>
+        <li>🤖 Accuracy: <strong>93%</strong> on IMDb dataset</li>
+        <li><strong>Tech:</strong> Python, NLTK, Transformers, Torch</li>
+      </ul>
+      <a href="https://github.com/isadoji/projects/tree/main/14" target="_blank" class="project-btn">🔗 View on GitHub</a>
+    </div>
 
-      <h4><a href="https://github.com/isadoji/projects/tree/main/10">Oil Extraction Analysis</a></h4>
-      <p>Regression and optimization model to forecast oil extraction volumes.</p>
-      <p><em>Tech:</em> Scikit-learn, Numpy, GridSearchCV</p>
+    <!-- Age Determination -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="emoji">🧬</span>
+        <h4>Age Determination</h4>
+      </div>
+      <p>
+        Computer vision model predicting human age from facial images using CNNs and transfer learning.
+      </p>
+      <ul>
+        <li>🧠 Achieved <strong>MAE = 2.1 years</strong> on validation data</li>
+        <li><strong>Tech:</strong> TensorFlow, Keras, Scikit-learn</li>
+      </ul>
+      <a href="https://github.com/isadoji/projects/tree/main/15" target="_blank" class="project-btn">🔗 View on GitHub</a>
+    </div>
 
-      <h4><a href="https://github.com/isadoji/projects/tree/main/14">Movie Review Classification</a></h4>
-      <p>Sentiment analysis using NLP with TF-IDF, BERT and SpaCy to classify movie reviews.</p>
-      <p><em>Tech:</em> Python, NLTK, Transformers, Torch</p>
-
-      <h4><a href="https://github.com/isadoji/projects/tree/main/15">Age Determination</a></h4>
-      <p>Computer vision model to predict age from facial images using CNNs.</p>
-      <p><em>Tech:</em> TensorFlow, Scikit-learn</p>
-
-      <h4><a href="https://github.com/isadoji/photons">Photon Production Simulation</a></h4>
-      <p>Numerical modeling of photon emission in magnetic-field environments for high-energy physics.</p>
-      <p><em>Tech:</em> ROOT (C++), Mathematica</p>
-
-      <h3>Career Objective</h3>
-      <p>To apply my experience in data science and machine learning to real-world problems, contributing to innovative projects that combine scientific reasoning, AI, and decision-making analytics.</p>
+    <!-- Photon Simulation -->
+    <div class="project-card highlight">
+      <div class="project-header">
+        <span class="emoji">🌌</span>
+        <h4>Photon Production Simulation</h4>
+      </div>
+      <p>
+        Numerical modeling of photon emission in heavy-ion collisions using quantum field simulation methods.
+      </p>
+      <ul>
+        <li>📊 Optimized simulation runtime by <strong>35%</strong></li>
+        <li><strong>Tech:</strong> ROOT (C++), Mathematica</li>
+      </ul>
+      <a href="https://github.com/isadoji/photons" target="_blank" class="project-btn">🔗 View on GitHub</a>
     </div>
   </div>
-
-  <footer>
-    © 2025 | Isabel Domínguez Jiménez · Data Scientist & Physicist
-  </footer>
-</body>
-</html>
+</div>
