@@ -5,170 +5,556 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Isabel Domínguez Jiménez | Data Scientist & Physicist</title>
   <style>
-    body {
-      font-family: "Segoe UI", Roboto, sans-serif;
-      background: #f7f8fa;
-      color: #222;
-      margin: 0;
-      padding: 0;
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:  #15304a;
+      --blue:  #1b4d7a;
+      --gold:  #ffdf91;
+      --gold2: #f5c842;
+      --light: #f7f8fa;
+      --white: #ffffff;
+      --text:  #1a1a2e;
+      --muted: #5a6a7a;
+      --card-shadow: 0 4px 20px rgba(0,0,0,0.09);
+      --radius: 14px;
     }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      display: flex; justify-content: center; gap: 2rem;
+      padding: 0.7rem 1rem;
+      font-size: 0.88rem;
+    }
+    nav a { color: #cfe4ff; font-weight: 600; letter-spacing: 0.03em; }
+    nav a:hover { color: var(--gold); text-decoration: none; }
+
+    /* ── Hero ── */
     header {
-      text-align: center;
-      background: linear-gradient(90deg, #15304a, #1b4d7a);
+      background: linear-gradient(135deg, #0e2337 0%, #1b4d7a 100%);
       color: #f8f9fa;
-      padding: 2rem 1rem;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
     }
     header img {
-      width: 120px;
-      height: 120px;
+      width: 130px; height: 130px;
       border-radius: 50%;
-      border: 3px solid #ffdf91;
+      border: 4px solid var(--gold);
       object-fit: cover;
-      margin-bottom: 1rem;
+      margin-bottom: 1.1rem;
+      box-shadow: 0 0 0 6px rgba(255,223,145,0.2);
     }
-    header h1 {
-      margin: 0.2rem;
-      color: #ffdf91;
-      font-size: 1.8rem;
+    header h1 { color: var(--gold); font-size: 2rem; margin-bottom: 0.3rem; }
+    header h2 { font-weight: 400; color: #cfe4ff; font-size: 1.05rem; margin-bottom: 1rem; }
+    .hero-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-bottom: 1.4rem; }
+    .hero-links a {
+      color: #cfe4ff; font-size: 0.88rem;
+      border: 1px solid rgba(207,228,255,0.35);
+      padding: 0.3rem 0.8rem; border-radius: 20px;
+      transition: 0.2s;
     }
-    header h2 {
-      margin: 0.2rem;
-      font-weight: 400;
-      color: #cfe4ff;
-    }
-    .columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      max-width: 1400px;
-      margin: 2rem auto;
-      padding: 0 2rem;
-    }
-    .column {
-      background: #ffffff;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      padding: 2rem;
-    }
-    h3 {
-      color: #1b4d7a;
-      border-bottom: 2px solid #ffdf91;
-      padding-bottom: 0.3rem;
-    }
-    a {
-      color: #1b4d7a;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .button {
+    .hero-links a:hover { background: rgba(255,255,255,0.12); color: var(--gold); text-decoration: none; }
+    .btn {
       display: inline-block;
-      background: #ffdf91;
-      color: #15304a;
-      padding: 0.6rem 1.2rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-      margin-top: 1rem;
+      background: var(--gold); color: var(--navy);
+      padding: 0.6rem 1.4rem; border-radius: 25px;
+      font-weight: 700; font-size: 0.92rem;
+      transition: 0.2s;
     }
-    .button:hover {
-      background: #ffeabf;
+    .btn:hover { background: #ffe9ad; text-decoration: none; }
+
+    /* ── Section wrapper ── */
+    .section { max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem; }
+    .section-title {
+      font-size: 1.35rem; font-weight: 700;
+      color: var(--navy); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.5rem;
     }
-    ul {
-      line-height: 1.6;
+    .section-title::after {
+      content: ""; flex: 1; height: 2px;
+      background: linear-gradient(90deg, var(--gold2), transparent);
+      margin-left: 0.5rem;
     }
+
+    /* ── Profile strip ── */
+    #about { background: var(--white); border-bottom: 1px solid #e5e9ee; }
+    #about .section { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    #about p { color: var(--muted); font-size: 0.97rem; }
+
+    /* ── Skill pills ── */
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-pill {
+      background: #e9f0f8; color: var(--navy);
+      padding: 0.3rem 0.85rem; border-radius: 20px;
+      font-size: 0.82rem; font-weight: 600;
+    }
+    .skill-pill.hl { background: var(--gold); color: var(--navy); }
+
+    /* ── Project cards ── */
+    #projects { background: var(--light); }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1.4rem;
+    }
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      padding: 1.5rem;
+      display: flex; flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,0.13); }
+    .card-tag {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--blue);
+      background: #e4eef8; padding: 0.2rem 0.6rem;
+      border-radius: 6px; align-self: flex-start;
+      margin-bottom: 0.6rem;
+    }
+    .card-tag.science  { background: #e8f5e9; color: #2e7d32; }
+    .card-tag.nlp      { background: #fce4ec; color: #c62828; }
+    .card-tag.dash     { background: #fff3e0; color: #e65100; }
+    .card-tag.agent    { background: #ede7f6; color: #4527a0; }
+    .card h4 { font-size: 1.02rem; color: var(--navy); margin-bottom: 0.4rem; }
+    .card h4 a { color: var(--navy); }
+    .card h4 a:hover { color: var(--blue); }
+    .card p { font-size: 0.88rem; color: var(--muted); flex: 1; margin-bottom: 0.8rem; }
+    .tech-line { font-size: 0.78rem; color: var(--muted); }
+    .tech-line strong { color: var(--text); }
+
+    /* ── Experience timeline ── */
+    #experience { background: var(--white); }
+    .timeline { border-left: 3px solid #dce6f0; margin-left: 0.5rem; }
+    .timeline-item { position: relative; padding: 0 0 1.8rem 1.8rem; }
+    .timeline-item::before {
+      content: ""; position: absolute; left: -7px; top: 5px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--gold2); border: 2px solid var(--navy);
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .tl-date { font-size: 0.78rem; color: var(--muted); font-weight: 600; letter-spacing: 0.04em; }
+    .tl-role { font-size: 1rem; font-weight: 700; color: var(--navy); margin: 0.15rem 0; }
+    .tl-org  { font-size: 0.88rem; color: var(--blue); margin-bottom: 0.4rem; }
+    .tl-body { font-size: 0.88rem; color: var(--muted); }
+    .tl-body ul { padding-left: 1.2rem; margin-top: 0.3rem; }
+    .tl-body li { margin-bottom: 0.2rem; }
+
+    /* ── Publications ── */
+    #publications { background: var(--light); }
+    .pub-item { padding: 0.9rem 0; border-bottom: 1px solid #e5e9ee; }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-item p { font-size: 0.88rem; color: var(--muted); margin-top: 0.2rem; }
+    .pub-badge {
+      display: inline-block; font-size: 0.72rem; font-weight: 700;
+      background: var(--navy); color: var(--gold);
+      padding: 0.15rem 0.55rem; border-radius: 5px; margin-right: 0.4rem;
+      vertical-align: middle;
+    }
+
+    /* ── Awards ── */
+    #awards { background: var(--white); }
+    .awards-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .award-card {
+      background: linear-gradient(135deg, #f0f5fb, #e5edf6);
+      border-left: 4px solid var(--gold2);
+      border-radius: 10px; padding: 1rem 1.1rem;
+    }
+    .award-card h4 { font-size: 0.92rem; color: var(--navy); margin-bottom: 0.2rem; }
+    .award-card p  { font-size: 0.8rem;  color: var(--muted); }
+
+    /* ── Collaborations ── */
+    #collaborations { background: var(--light); }
+    .collab-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .collab-card {
+      background: var(--white); border-radius: 10px;
+      padding: 1rem; text-align: center;
+      box-shadow: var(--card-shadow);
+    }
+    .collab-card .collab-icon { font-size: 1.8rem; margin-bottom: 0.4rem; }
+    .collab-card h4 { font-size: 0.95rem; color: var(--navy); margin-bottom: 0.2rem; }
+    .collab-card p  { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── Footer ── */
     footer {
-      text-align: center;
-      padding: 2rem;
-      color: #555;
-      font-size: 0.9rem;
-      border-top: 1px solid #ccc;
+      background: var(--navy); color: #cfe4ff;
+      text-align: center; padding: 2rem 1rem;
+      font-size: 0.88rem;
     }
-    @media (max-width: 850px) {
-      .columns {
-        grid-template-columns: 1fr;
-        padding: 0 1rem;
-      }
+    footer a { color: var(--gold); }
+
+    /* ── Responsive ── */
+    @media (max-width: 750px) {
+      #about .section { grid-template-columns: 1fr; }
+      nav { gap: 1rem; font-size: 0.8rem; }
+      header h1 { font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="isadoji.jpeg" alt="Isabel Domínguez Jiménez" />
-    <h1>Isabel Domínguez Jiménez</h1>
-    <h2>Data Scientist · Physicist · Educator · Researcher</h2>
-    <p>📍 Mexico | ✉️ <a href="mailto:isadoji@gmail.com" style="color:#ffdf91;">isadoji@gmail.com</a> | 
-      <a href="https://www.linkedin.com/in/isadoji404/" style="color:#ffdf91;">LinkedIn</a> | 
-      <a href="https://github.com/isadoji" style="color:#ffdf91;">GitHub</a></p>
-    <a href="IsabelDominguez_CV.pdf" class="button" target="_blank">📄 Download CV</a>
-  </header>
 
-  <div class="columns">
-    <!-- Left Column: Profile and Skills -->
-    <div class="column">
-      <h3>Profile</h3>
-      <p>I am a Data Scientist and Physicist with more than 12 years of experience in research, teaching, and computational modeling. I combine scientific rigor with machine learning and data analytics to build predictive models and data-driven solutions for complex problems.</p>
+<!-- ── Navigation ── -->
+<nav>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#experience">Experience</a>
+  <a href="#publications">Publications</a>
+  <a href="#awards">Awards</a>
+  <a href="#collaborations">Collaborations</a>
+</nav>
 
-      <h3>Technical Skills</h3>
-      <ul>
-        <li><strong>Programming:</strong> Python, C++, SQL</li>
-        <li><strong>Libraries:</strong> Pandas, Scikit-learn, TensorFlow, PyTorch, Seaborn, Matplotlib</li>
-        <li><strong>Tools:</strong> Jupyter, Streamlit, Tableau, Docker, GitHub, Render</li>
-        <li><strong>Languages:</strong> Spanish (Native), English (B2)</li>
-      </ul>
+<!-- ── Hero ── -->
+<header>
+  <img src="isadoji.jpeg" alt="Isabel Domínguez Jiménez" />
+  <h1>Isabel Domínguez Jiménez, PhD</h1>
+  <h2>Data Scientist · Physicist · Machine Learning Researcher</h2>
+  <div class="hero-links">
+    <a href="mailto:isadoji@gmail.com">✉ isadoji@gmail.com</a>
+    <a href="https://github.com/isadoji" target="_blank">⌥ GitHub</a>
+    <a href="https://www.linkedin.com/in/isadoji404/" target="_blank">in LinkedIn</a>
+    <a href="https://scholar.google.es/citations?hl=es&user=Cp2yaAUAAAAJ" target="_blank">Scholar</a>
+    <a href="https://orcid.org/0000-0002-4372-7830" target="_blank">ORCID</a>
+  </div>
+  <a href="IsabelDominguez_CV.pdf" class="btn" target="_blank">⬇ Download CV</a>
+</header>
 
-      <h3>Experience</h3>
-      <p><strong>Professor & Researcher</strong> — Universidad Autónoma de Sinaloa (2013–Present)<br>
-      Designed and taught 50+ courses in Computational Physics and Data Analysis. Supervised 11 theses integrating Python and machine learning into research workflows.</p>
-
-      <p><strong>Visiting Professor</strong> — Universidad de Colima (2022–2023)<br>
-      Applied ML techniques to physical simulations and improved data workflows in research collaborations.</p>
-
-      <p><strong>Postdoctoral Researcher</strong> — UNAM (2011–2012)<br>
-      Developed Monte Carlo models and optimized algorithms for high-energy physics data.</p>
-
-      <h3>Education</h3>
-      <ul>
-        <li>Bootcamp in Data Science – TripleTen (2024)</li>
-        <li>PhD in Physics – UNAM (2011)</li>
-        <li>Master’s in Physics – CINVESTAV Mérida (2003)</li>
-        <li>Bachelor’s in Physics – UAEM (2001)</li>
-      </ul>
+<!-- ── About ── -->
+<div id="about">
+  <div class="section">
+    <div>
+      <div class="section-title">Profile</div>
+      <p>
+        Physicist and data scientist with <strong>12+ years</strong> of research experience
+        at international high-energy physics collaborations (CERN-ALICE, Belle II, NICA).
+        Expert in large-scale statistical analysis, Monte Carlo simulations, and machine
+        learning applied to complex, high-dimensional datasets.
+      </p>
+      <br>
+      <p>
+        Recognized as <strong>SNI Level II</strong> researcher by CONAHCyT (2023–2027).
+        Complemented a deep scientific background with an industry-focused
+        <strong>Data Science Bootcamp (TripleTen, 2024)</strong>, deploying end-to-end ML
+        pipelines and web applications.
+      </p>
     </div>
-
-    <!-- Right Column: Projects -->
-    <div class="column">
-      <h3>Featured Projects</h3>
-
-      <h4><a href="https://github.com/isadoji/projects/tree/main/5">Vehicle Price Prediction</a></h4>
-      <p>Machine learning model to predict vehicle prices based on key features, deployed on Render using Streamlit.</p>
-      <p><em>Tech:</em> Python, Scikit-learn, Pandas, Streamlit</p>
-
-      <h4><a href="https://github.com/isadoji/projects/tree/main/10">Oil Extraction Analysis</a></h4>
-      <p>Regression and optimization model to forecast oil extraction volumes.</p>
-      <p><em>Tech:</em> Scikit-learn, Numpy, GridSearchCV</p>
-
-      <h4><a href="https://github.com/isadoji/projects/tree/main/14">Movie Review Classification</a></h4>
-      <p>Sentiment analysis using NLP with TF-IDF, BERT and SpaCy to classify movie reviews.</p>
-      <p><em>Tech:</em> Python, NLTK, Transformers, Torch</p>
-
-      <h4><a href="https://github.com/isadoji/projects/tree/main/15">Age Determination</a></h4>
-      <p>Computer vision model to predict age from facial images using CNNs.</p>
-      <p><em>Tech:</em> TensorFlow, Scikit-learn</p>
-
-      <h4><a href="https://github.com/isadoji/photons">Photon Production Simulation</a></h4>
-      <p>Numerical modeling of photon emission in magnetic-field environments for high-energy physics.</p>
-      <p><em>Tech:</em> ROOT (C++), Mathematica</p>
-
-      <h3>Career Objective</h3>
-      <p>To apply my experience in data science and machine learning to real-world problems, contributing to innovative projects that combine scientific reasoning, AI, and decision-making analytics.</p>
+    <div>
+      <div class="section-title">Skills</div>
+      <div class="skills-grid">
+        <span class="skill-pill hl">Python</span>
+        <span class="skill-pill hl">Machine Learning</span>
+        <span class="skill-pill hl">Neural Networks</span>
+        <span class="skill-pill hl">Monte Carlo</span>
+        <span class="skill-pill">Scikit-learn</span>
+        <span class="skill-pill">TensorFlow</span>
+        <span class="skill-pill">PyTorch</span>
+        <span class="skill-pill">XGBoost</span>
+        <span class="skill-pill">Graph Neural Networks</span>
+        <span class="skill-pill">NLP / Transformers</span>
+        <span class="skill-pill">Computer Vision</span>
+        <span class="skill-pill">Pandas · NumPy</span>
+        <span class="skill-pill">Plotly · Dash</span>
+        <span class="skill-pill">Tableau</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">C++ · ROOT-CERN</span>
+        <span class="skill-pill">Streamlit</span>
+        <span class="skill-pill">Git · GitHub</span>
+        <span class="skill-pill">Linux · HPC</span>
+        <span class="skill-pill">Jupyter</span>
+      </div>
     </div>
   </div>
+</div>
 
-  <footer>
-    © 2025 | Isabel Domínguez Jiménez . Data Scientist & Physicist
-  </footer>
+<!-- ── Projects ── -->
+<div id="projects">
+  <div class="section">
+    <div class="section-title">Featured Projects</div>
+    <div class="projects-grid">
+
+      <!-- 1 -->
+      <div class="card">
+        <span class="card-tag agent">AI · Agents</span>
+        <h4><a href="https://github.com/isadoji/AI-agent" target="_blank">Modular AI Agent Framework</a></h4>
+        <p>A structured Python framework for building and prototyping autonomous AI agents:
+           loop agents, sequential agents, parallel multi-agent systems, and architected
+           pipelines. Designed for rapid research experimentation.</p>
+        <div class="tech-line"><strong>Tech:</strong> Python, Google ADK, conda</div>
+      </div>
+
+      <!-- 2 -->
+      <div class="card">
+        <span class="card-tag dash">Dashboard · Data Viz</span>
+        <h4><a href="https://github.com/isadoji/dashboard-acuicola" target="_blank">Aquaculture Production Dashboard</a></h4>
+        <p>Interactive Dash/Plotly web application that fetches and visualizes Mexican
+           aquaculture production data (CONAPESCA, 2022–2024) with geographic breakdowns
+           per state and species.</p>
+        <div class="tech-line"><strong>Tech:</strong> Python, Dash, Plotly, Pandas, REST API</div>
+      </div>
+
+      <!-- 3 -->
+      <div class="card">
+        <span class="card-tag">NLP · Deep Learning</span>
+        <h4><a href="https://github.com/isadoji/projects/tree/main/14" target="_blank">Movie Review Sentiment Analysis</a></h4>
+        <p>End-to-end NLP pipeline combining TF-IDF, SpaCy lemmatization, and BERT
+           fine-tuning to classify positive/negative film reviews. Compared classical
+           vs. transformer-based approaches.</p>
+        <div class="tech-line"><strong>Tech:</strong> Python, NLTK, SpaCy, HuggingFace Transformers, PyTorch</div>
+      </div>
+
+      <!-- 4 -->
+      <div class="card">
+        <span class="card-tag">Computer Vision</span>
+        <h4><a href="https://github.com/isadoji/projects/tree/main/15" target="_blank">Age Estimation from Facial Images</a></h4>
+        <p>CNN regression model trained on facial photographs to predict a person's age.
+           Includes data augmentation, transfer learning with ResNet50, and error
+           analysis with MAE metrics.</p>
+        <div class="tech-line"><strong>Tech:</strong> TensorFlow, Keras, ResNet50, Scikit-learn</div>
+      </div>
+
+      <!-- 5 -->
+      <div class="card">
+        <span class="card-tag">ML · Deployment</span>
+        <h4><a href="https://github.com/isadoji/projects/tree/main/5" target="_blank">Vehicle Price Prediction App</a></h4>
+        <p>Regression model to predict used-car prices from vehicle features, packaged
+           as a Streamlit web application and deployed to Render. Covers EDA,
+           feature engineering, and model selection.</p>
+        <div class="tech-line"><strong>Tech:</strong> Python, Scikit-learn, Pandas, Streamlit, Render</div>
+      </div>
+
+      <!-- 6 -->
+      <div class="card">
+        <span class="card-tag science">HEP · Scientific Python</span>
+        <h4><a href="https://github.com/isadoji/pyHEP" target="_blank">High-Energy Physics with Python</a></h4>
+        <p>Jupyter notebooks (runnable on Google Colab) covering particle physics
+           analysis with the Scikit-HEP ecosystem: data wrangling with Awkward Array,
+           J/ψ invariant-mass analysis, and ROOT-compatible workflows in pure Python.</p>
+        <div class="tech-line"><strong>Tech:</strong> Python, Scikit-HEP, Uproot, Awkward Array, Matplotlib</div>
+      </div>
+
+      <!-- 7 -->
+      <div class="card">
+        <span class="card-tag science">Monte Carlo · C++</span>
+        <h4><a href="https://github.com/isadoji/centrality" target="_blank">Glauber Monte Carlo – Centrality Analysis</a></h4>
+        <p>C++ implementation of a Monte Carlo Glauber model to compute geometric
+           quantities (participants, binary collisions) in heavy-ion collisions at NICA
+           energies. Used for centrality classification of experimental data.</p>
+        <div class="tech-line"><strong>Tech:</strong> C++, ROOT-CERN, Bash</div>
+      </div>
+
+      <!-- 8 -->
+      <div class="card">
+        <span class="card-tag">ML · Teaching</span>
+        <h4><a href="https://github.com/isadoji/ciencia-de-datos" target="_blank">Data Science Course Notebooks</a></h4>
+        <p>Complete open course in Spanish covering the full ML pipeline: gradient descent,
+           linear &amp; logistic regression, decision trees, random forests, SVMs, neural
+           networks, clustering, time series, and SQL — with datasets and exercises.</p>
+        <div class="tech-line"><strong>Tech:</strong> Python, Scikit-learn, Pandas, Matplotlib, SQL</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── Experience ── -->
+<div id="experience">
+  <div class="section">
+    <div class="section-title">Professional Experience</div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="tl-date">2013 – 2025</div>
+        <div class="tl-role">Full-Time Professor &amp; Researcher</div>
+        <div class="tl-org">Autonomous University of Sinaloa (UAS) · Culiacán, Mexico</div>
+        <div class="tl-body">
+          <ul>
+            <li>Led data analysis and simulation research within ALICE (CERN), Belle II (KEK), and MPD-NICA (JINR); co-authored 60+ peer-reviewed publications.</li>
+            <li>Designed 50+ courses: Computational Physics, Monte Carlo Simulation, Data Science, Optimization, and Scientific Computing (BSc–PhD level).</li>
+            <li>Supervised 11 theses on ML for particle identification, Monte Carlo simulation, and large-dataset analysis.</li>
+            <li>SNI Level II researcher (CONAHCyT, 2023–2027); led Consolidated Academic Group "Decision Support Systems."</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-date">2022 – 2023</div>
+        <div class="tl-role">Visiting Professor / Sabbatical Researcher</div>
+        <div class="tl-org">Faculty of Sciences, University of Colima · Mexico</div>
+        <div class="tl-body">
+          <ul>
+            <li>Built and benchmarked ML classification models (Logistic Regression, Decision Trees, Neural Networks) in Python for high-energy physics data.</li>
+            <li>Developed analysis workflows for Belle II and NICA experimental datasets.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-date">2011 – 2012</div>
+        <div class="tl-role">Postdoctoral Researcher</div>
+        <div class="tl-org">Nuclear Sciences Institute, UNAM · Mexico City</div>
+        <div class="tl-body">
+          <ul>
+            <li>Optimized C++ Monte Carlo simulations for energy-loss modeling in quark-gluon plasma; published in <em>Physical Review C</em>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-date">2006 – 2009</div>
+        <div class="tl-role">Research Fellow (HELEN Project)</div>
+        <div class="tl-org">CERN – ALICE Collaboration · Geneva, Switzerland</div>
+        <div class="tl-body">
+          <ul>
+            <li>Analyzed multi-TB LHC datasets in C++/ROOT; developed azimuthal-correlation analysis code adopted for collaboration publications.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <br>
+    <div class="section-title" style="margin-top:1.5rem;">Education</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="tl-date">2024</div>
+        <div class="tl-role">Bootcamp in Data Science</div>
+        <div class="tl-org">TripleTen</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-date">2011</div>
+        <div class="tl-role">PhD in Physics</div>
+        <div class="tl-org">National Autonomous University of Mexico (UNAM) · Dissertation: Jet structure in Pb-Pb collisions at LHC energies</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-date">2003</div>
+        <div class="tl-role">Master's in Physics</div>
+        <div class="tl-org">CINVESTAV, Mérida · Dissertation: Jet quenching in heavy-ion collisions</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-date">2001</div>
+        <div class="tl-role">Bachelor's in Physics</div>
+        <div class="tl-org">Autonomous University of the State of Morelos (UAEM)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Publications ── -->
+<div id="publications">
+  <div class="section">
+    <div class="section-title">Selected Publications <span style="font-size:0.8rem;font-weight:400;color:var(--muted)">&nbsp;(60+ total)</span></div>
+
+    <div class="pub-item">
+      <strong>A new graph-neural-network flavor tagger for Belle II and measurement of sin(2φ)</strong><br>
+      <p><span class="pub-badge">ML · GNN</span> Belle II Collaboration · <em>Phys. Rev. D</em> 110, 012001 (2024)</p>
+    </div>
+    <div class="pub-item">
+      <strong>A Neural Network approach to reconstructing SuperKEKB beam parameters from beamstrahlung</strong><br>
+      <p><span class="pub-badge">Neural Network</span> S. Di Carlo, …, I. Domínguez, et al. · <em>Nucl. Instr. Methods A</em> 1042, 167453 (2022)</p>
+    </div>
+    <div class="pub-item">
+      <strong>Particle physics phenomenology with Python 3</strong><br>
+      <p><span class="pub-badge">Python · HEP</span> I. Domínguez Jiménez et al. · <em>Revista Mexicana de Física E</em> 17(2), 150–155 (2020)</p>
+    </div>
+    <div class="pub-item">
+      <strong>The conceptual design of the miniBeBe detector for NICA-MPD</strong><br>
+      <p><span class="pub-badge">Simulation</span> MexNICA Collaboration · <em>JINST</em> 16, P02002 (2021)</p>
+    </div>
+    <div class="pub-item">
+      <strong>Monte Carlo approach for hadron azimuthal correlations in high-energy collisions</strong><br>
+      <p><span class="pub-badge">Monte Carlo</span> A. Ayala, I. Domínguez, et al. · <em>Phys. Rev. C</em> 86, 034901 (2012)</p>
+    </div>
+
+    <br>
+    <a href="https://scholar.google.es/citations?hl=es&user=Cp2yaAUAAAAJ" target="_blank" class="btn">
+      View full publication list →
+    </a>
+  </div>
+</div>
+
+<!-- ── Awards ── -->
+<div id="awards">
+  <div class="section">
+    <div class="section-title">Awards &amp; Recognition</div>
+    <div class="awards-grid">
+      <div class="award-card">
+        <h4>SNI Level II · CONAHCyT</h4>
+        <p>2023–2027 · National Research System, top-tier distinction for research productivity in Mexico.</p>
+      </div>
+      <div class="award-card">
+        <h4>Desirable Profile · PRODEP</h4>
+        <p>2023–2026 · Federal recognition for full-time professors with outstanding research output.</p>
+      </div>
+      <div class="award-card">
+        <h4>Consolidated Academic Group</h4>
+        <p>2022–2027 · "Decision Support Systems" — PRODEP highest group-level recognition.</p>
+      </div>
+      <div class="award-card">
+        <h4>2nd Place · ANUIES 2019</h4>
+        <p>Innovation competition: Optimization of aquaculture production via control engineering. UAS Innovation Park.</p>
+      </div>
+      <div class="award-card">
+        <h4>Honorable Mention · CNF 2018</h4>
+        <p>LXI National Physics Congress poster: Numerical approximation to Lagrangian mechanics.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Collaborations ── -->
+<div id="collaborations">
+  <div class="section">
+    <div class="section-title">International Collaborations</div>
+    <div class="collab-grid">
+      <div class="collab-card">
+        <div class="collab-icon">⚛</div>
+        <h4>ALICE · CERN</h4>
+        <p>LHC, Geneva, Switzerland<br>2006–2014</p>
+      </div>
+      <div class="collab-card">
+        <div class="collab-icon">🔬</div>
+        <h4>Belle II · KEK</h4>
+        <p>Tsukuba, Japan<br>2013–present</p>
+      </div>
+      <div class="collab-card">
+        <div class="collab-icon">🧲</div>
+        <h4>MPD-NICA · JINR</h4>
+        <p>Dubna, Russia<br>2016–present</p>
+      </div>
+      <div class="collab-card">
+        <div class="collab-icon">🇲🇽</div>
+        <h4>MexNICA · CONACyT</h4>
+        <p>Mexico national collaboration<br>2016–present</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Footer ── -->
+<footer>
+  <p>© 2025 Isabel Domínguez Jiménez ·
+     <a href="mailto:isadoji@gmail.com">isadoji@gmail.com</a> ·
+     <a href="https://github.com/isadoji" target="_blank">GitHub</a> ·
+     <a href="https://www.linkedin.com/in/isadoji404/" target="_blank">LinkedIn</a>
+  </p>
+</footer>
+
 </body>
 </html>
