@@ -79,6 +79,17 @@
   .card h3 { font-size: 1rem; color: var(--navy); margin-bottom: 0.2rem; }
   .card .note { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.6rem; }
 
+  #spider-years { justify-content: flex-start; margin-bottom: 1rem; }
+  #spider-years .tab { padding: 0.4rem 0.85rem; font-size: 0.8rem; }
+  .spider-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 0.4rem;
+  }
+  .spider-cell h4 {
+    text-align: center; font-size: 0.82rem; color: var(--navy);
+    margin-bottom: -0.4rem;
+  }
+
   .legend-note {
     display: flex; gap: 1.4rem; justify-content: center;
     font-size: 0.8rem; color: var(--muted); margin: -0.6rem 0 1.6rem;
@@ -142,6 +153,19 @@
     <h3>Por nivel, género y año</h3>
     <div class="note">Nivel Emérito (E) solo es distinguible como categoría propia desde 2023 en los datos disponibles.</div>
     <div id="plot-nivel" style="height:340px;"></div>
+  </div>
+
+  <div class="card">
+    <h3>Spider web: nivel &times; &aacute;rea &times; g&eacute;nero</h3>
+    <div class="note">
+      Para cada nivel, cu&aacute;ntos investigadores hay por &aacute;rea de conocimiento y g&eacute;nero, en el a&ntilde;o elegido.
+      El SNI cambi&oacute; de 7 a 9 &aacute;reas en 2023 (divisi&oacute;n de <em>Humanidades y Ciencias de la Conducta</em>,
+      renombres, y la nueva &aacute;rea <em>Interdisciplinaria</em>); aqu&iacute; se usa una taxonom&iacute;a can&oacute;nica de 8 ejes
+      que fusiona esos cambios para poder comparar toda la serie 2015&ndash;2025. <em>Interdisciplinaria</em> vale
+      leg&iacute;timamente 0 antes de 2023, porque esa categor&iacute;a a&uacute;n no exist&iacute;a como opci&oacute;n.
+    </div>
+    <div class="tabs" id="spider-years"></div>
+    <div class="spider-grid" id="spider-grid"></div>
   </div>
 
 </div>
@@ -231,6 +255,68 @@ const AREA_LABEL = {
 const PLOTLY_FONT = { family: '"Segoe UI", Roboto, sans-serif', color: '#1a1a2e' };
 const MUJER = '#2e7d32', HOMBRE = '#6a3fb5';
 
+// Taxonomía canónica de 8 áreas (fusiona la división post-2023 de "Humanidades y Ciencias
+// de la Conducta" y agrega "Interdisciplinaria" como eje nuevo desde 2023). Mismo orden que
+// datasets/resumen_area_nivel_genero_por_anio.csv en github.com/isadoji/sni.
+const SPIDER_AREAS = [
+  'Físico-Mat.', 'Biología y Química', 'Medicina', 'Human. y C. Conducta',
+  'C. Sociales', 'Biotec. y Agropec.', 'Ingenierías', 'Interdisciplinaria',
+];
+const SPIDER_NIVELES = ['C', '1', '2', '3', 'E'];
+const SPIDER_YEARS = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2024, 2025];
+
+// SPIDER_DATA[año][nivel] = [[hombres por área...], [mujeres por área...]]
+const SPIDER_DATA = {"2015": {"C": [[544, 432, 166, 212, 360, 288, 487, 0], [263, 489, 192, 288, 326, 289, 235, 0]], "1": [[1144, 1068, 678, 929, 1188, 891, 1380, 0], [491, 1004, 869, 1064, 898, 593, 577, 0]], "2": [[621, 390, 201, 285, 331, 258, 396, 0], [190, 255, 188, 325, 256, 132, 136, 0]], "3": [[436, 231, 153, 147, 220, 124, 131, 0], [91, 119, 64, 131, 94, 38, 24, 0]], "E": [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]}, "2016": {"C": [[542, 426, 204, 284, 446, 337, 500, 0], [273, 475, 231, 363, 380, 347, 236, 0]], "1": [[1247, 1122, 749, 1054, 1213, 931, 1512, 0], [545, 1019, 949, 1142, 958, 623, 644, 0]], "2": [[640, 407, 226, 293, 362, 283, 404, 0], [197, 271, 235, 335, 289, 144, 136, 0]], "3": [[453, 244, 167, 145, 232, 133, 130, 0], [97, 120, 69, 135, 102, 44, 25, 0]], "E": [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]}, "2017": {"C": [[608, 427, 260, 344, 534, 412, 567, 0], [322, 471, 294, 435, 446, 427, 269, 0]], "1": [[1296, 1173, 825, 1114, 1234, 1010, 1695, 0], [568, 1086, 1040, 1209, 1014, 678, 720, 0]], "2": [[662, 431, 256, 299, 392, 295, 390, 0], [205, 284, 293, 344, 315, 152, 134, 0]], "3": [[480, 266, 196, 146, 251, 140, 131, 0], [103, 128, 83, 141, 116, 49, 25, 0]], "E": [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]}, "2018": {"C": [[636, 407, 260, 449, 614, 491, 581, 0], [366, 442, 325, 580, 549, 550, 298, 0]], "1": [[1339, 1174, 831, 1080, 1232, 1063, 1814, 0], [576, 1152, 1077, 1206, 1067, 725, 809, 0]], "2": [[672, 437, 287, 305, 420, 292, 358, 0], [220, 290, 318, 353, 339, 153, 128, 0]], "3": [[497, 276, 206, 149, 261, 148, 136, 0], [106, 143, 95, 141, 129, 57, 24, 0]], "E": [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]}, "2019": {"C": [[702, 410, 266, 508, 732, 526, 676, 0], [432, 459, 358, 676, 748, 634, 362, 0]], "1": [[1422, 1240, 859, 1093, 1285, 1180, 1909, 0], [617, 1239, 1111, 1219, 1109, 825, 880, 0]], "2": [[674, 430, 298, 302, 424, 285, 340, 0], [225, 307, 329, 352, 345, 145, 122, 0]], "3": [[518, 296, 220, 155, 265, 154, 135, 0], [118, 144, 115, 148, 137, 58, 30, 0]], "E": [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]}, "2020": {"C": [[741, 489, 297, 636, 873, 630, 774, 0], [443, 536, 417, 841, 917, 709, 424, 0]], "1": [[1534, 1296, 938, 1110, 1336, 1387, 1971, 0], [672, 1339, 1163, 1258, 1159, 1007, 921, 0]], "2": [[703, 455, 313, 327, 430, 302, 347, 0], [233, 337, 342, 336, 354, 163, 121, 0]], "3": [[530, 310, 228, 161, 272, 151, 141, 0], [123, 150, 127, 158, 143, 60, 30, 0]], "E": [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]}, "2021": {"C": [[743, 547, 311, 659, 954, 665, 793, 0], [446, 601, 458, 849, 996, 723, 423, 0]], "1": [[1609, 1375, 967, 1162, 1464, 1589, 2100, 0], [729, 1400, 1165, 1355, 1277, 1184, 975, 0]], "2": [[724, 490, 309, 356, 464, 306, 363, 0], [232, 382, 339, 339, 365, 169, 130, 0]], "3": [[539, 335, 236, 162, 269, 156, 147, 0], [131, 165, 148, 163, 148, 61, 31, 0]], "E": [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]}, "2023": {"C": [[562, 503, 376, 742, 1040, 556, 675, 128], [351, 630, 505, 1034, 1155, 614, 333, 146]], "1": [[1853, 1863, 1156, 1546, 2031, 1478, 2706, 69], [888, 1969, 1383, 1847, 1884, 1035, 1402, 66]], "2": [[749, 589, 342, 428, 513, 245, 538, 2], [259, 462, 401, 428, 431, 116, 255, 0]], "3": [[469, 345, 193, 118, 220, 86, 186, 0], [126, 197, 145, 133, 146, 38, 74, 0]], "E": [[91, 78, 57, 51, 71, 25, 55, 0], [25, 42, 25, 53, 21, 3, 10, 0]]}, "2024": {"C": [[627, 601, 502, 867, 1233, 615, 744, 191], [408, 758, 637, 1268, 1416, 680, 356, 222]], "1": [[1997, 1664, 1117, 1512, 2067, 1884, 2223, 269], [932, 1857, 1326, 1902, 1960, 1487, 1022, 263]], "2": [[827, 644, 340, 447, 556, 332, 366, 79], [310, 524, 402, 457, 454, 220, 128, 47]], "3": [[485, 344, 191, 112, 210, 138, 128, 19], [135, 232, 137, 117, 149, 70, 43, 11]], "E": [[110, 85, 68, 58, 77, 43, 45, 2], [32, 54, 33, 57, 35, 7, 11, 1]]}, "2025": {"C": [[519, 615, 495, 885, 1213, 556, 714, 277], [360, 801, 601, 1280, 1503, 601, 343, 331]], "1": [[1934, 1639, 1057, 1562, 2130, 1861, 2158, 292], [919, 1803, 1302, 1998, 2086, 1478, 997, 313]], "2": [[874, 706, 348, 480, 600, 388, 462, 80], [345, 609, 433, 506, 498, 289, 168, 48]], "3": [[520, 358, 188, 123, 218, 151, 131, 20], [144, 242, 145, 118, 151, 82, 43, 11]], "E": [[118, 88, 74, 63, 80, 52, 49, 2], [38, 54, 37, 63, 44, 12, 12, 1]]}};
+
+function buildSpiderTabs() {
+  const wrap = document.getElementById('spider-years');
+  wrap.innerHTML = SPIDER_YEARS.map(y =>
+    `<button class="tab${y === 2025 ? ' active' : ''}" data-year="${y}">${y}</button>`
+  ).join('');
+  wrap.addEventListener('click', e => {
+    const btn = e.target.closest('.tab');
+    if (!btn) return;
+    wrap.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    renderSpider(Number(btn.dataset.year));
+  });
+}
+
+function buildSpiderGrid() {
+  const grid = document.getElementById('spider-grid');
+  grid.innerHTML = SPIDER_NIVELES.map(nivel => `
+    <div class="spider-cell">
+      <h4>Nivel ${nivel}</h4>
+      <div id="plot-spider-${nivel}" style="height:230px;"></div>
+    </div>
+  `).join('');
+}
+
+function renderSpider(year) {
+  const datosAnio = SPIDER_DATA[String(year)];
+  const theta = [...SPIDER_AREAS, SPIDER_AREAS[0]];
+  SPIDER_NIVELES.forEach((nivel, i) => {
+    const [h, m] = datosAnio[nivel];
+    const rH = [...h, h[0]], rM = [...m, m[0]];
+    const traceH = {
+      type: 'scatterpolar', r: rH, theta, name: 'Hombres', legendgroup: 'h',
+      showlegend: i === 0, line: { color: HOMBRE, width: 2 }, fill: 'toself',
+      fillcolor: 'rgba(106,63,181,0.12)', marker: { size: 4 },
+    };
+    const traceM = {
+      type: 'scatterpolar', r: rM, theta, name: 'Mujeres', legendgroup: 'm',
+      showlegend: i === 0, line: { color: MUJER, width: 2 }, fill: 'toself',
+      fillcolor: 'rgba(46,125,50,0.12)', marker: { size: 4 },
+    };
+    Plotly.newPlot('plot-spider-' + nivel, [traceH, traceM], {
+      font: { family: PLOTLY_FONT.family, color: PLOTLY_FONT.color, size: 8 },
+      margin: { t: 10, r: 20, l: 20, b: i === 0 ? 40 : 10 },
+      polar: { radialaxis: { showticklabels: true, tickfont: { size: 7 } } },
+      showlegend: i === 0, legend: { orientation: 'h', y: -0.3, font: { size: 9 } },
+    }, { responsive: true, displayModeBar: false });
+  });
+}
+
 function renderKpis(d) {
   const first = d.resumen[0], last = d.resumen[d.resumen.length - 1];
   const kpis = document.getElementById('kpis');
@@ -319,6 +405,10 @@ document.getElementById('tabs').addEventListener('click', e => {
 });
 
 render('todas');
+
+buildSpiderTabs();
+buildSpiderGrid();
+renderSpider(2025);
 </script>
 
 </body>
