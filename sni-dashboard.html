@@ -41,8 +41,16 @@
   header .back:hover { color: var(--gold); }
   header h1 { color: var(--gold); font-size: 1.7rem; margin-bottom: 0.4rem; }
   header p { color: #cfe4ff; font-size: 0.92rem; max-width: 640px; margin: 0 auto; }
-  header .src { margin-top: 0.8rem; font-size: 0.78rem; }
+  header .src { margin-top: 0.9rem; font-size: 0.78rem; line-height: 2; }
+  header .src span { display: block; }
   header .src a { color: #cfe4ff; border-bottom: 1px dotted rgba(207,228,255,0.5); }
+  header .src .applink {
+    display: inline-block; margin: 0.25rem 0;
+    color: var(--navy); background: var(--gold2);
+    font-weight: 700; font-size: 0.82rem;
+    border: none; border-radius: 20px; padding: 0.28rem 0.85rem;
+  }
+  header .src .applink:hover { background: var(--gold); text-decoration: none; }
 
   .wrap { max-width: 1180px; margin: 0 auto; padding: 2rem 1.4rem 3.5rem; }
 
@@ -119,7 +127,11 @@
   <a class="back" href="index.html#projects">&larr; Volver al portafolio</a>
   <h1>SNI/SNII &middot; Investigadoras e Investigadores por Género y Nivel</h1>
   <p>Serie histórica 2015&ndash;2025 del Sistema Nacional de Investigadores (SECIHTI/CONAHCyT). 2022 se excluye: el archivo oficial de ese año es una tabla parcial de una sola institución, no el padrón nacional.</p>
-  <p class="src">Fuente de datos: <a href="https://secihti.mx/snii/archivo-historico-del-snii/" target="_blank">Archivo histórico del SNII</a> &middot; app interactiva: <a href="https://sni-explorer.onrender.com" target="_blank">sni-explorer.onrender.com</a> &middot; código: <a href="https://github.com/isadoji/sni" target="_blank">github.com/isadoji/sni</a></p>
+  <p class="src">
+    <span>Fuente de datos: <a href="https://secihti.mx/snii/archivo-historico-del-snii/" target="_blank">Archivo histórico del SNII</a></span>
+    <span>App interactiva: <a class="applink" href="https://sni-explorer.onrender.com" target="_blank">sni-explorer.onrender.com &rarr;</a></span>
+    <span>Código: <a href="https://github.com/isadoji/sni" target="_blank">github.com/isadoji/sni</a></span>
+  </p>
 </header>
 
 <div class="wrap">
