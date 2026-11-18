@@ -175,6 +175,7 @@
       renombres, y la nueva &aacute;rea <em>Interdisciplinaria</em>); aqu&iacute; se usa una taxonom&iacute;a can&oacute;nica de 8 ejes
       que fusiona esos cambios para poder comparar toda la serie 2015&ndash;2025. <em>Interdisciplinaria</em> vale
       leg&iacute;timamente 0 antes de 2023, porque esa categor&iacute;a a&uacute;n no exist&iacute;a como opci&oacute;n.
+      La escala de cada nivel es la misma en todos los a&ntilde;os.
     </div>
     <div class="tabs" id="spider-years"></div>
     <div class="spider-grid" id="spider-grid"></div>
@@ -304,6 +305,15 @@ function buildSpiderGrid() {
   `).join('');
 }
 
+// Escala radial fija por nivel: el máximo de todos los años, áreas y géneros,
+// para que al cambiar de año se vea el crecimiento y no se reescale cada gráfica.
+const SPIDER_MAX = {};
+SPIDER_NIVELES.forEach(nivel => {
+  let mx = 0;
+  Object.values(SPIDER_DATA).forEach(d => { if (d[nivel]) mx = Math.max(mx, ...d[nivel][0], ...d[nivel][1]); });
+  SPIDER_MAX[nivel] = mx > 0 ? mx * 1.05 : 1;
+});
+
 function renderSpider(year) {
   const datosAnio = SPIDER_DATA[String(year)];
   const theta = [...SPIDER_AREAS, SPIDER_AREAS[0]];
@@ -323,7 +333,7 @@ function renderSpider(year) {
     Plotly.newPlot('plot-spider-' + nivel, [traceH, traceM], {
       font: { family: PLOTLY_FONT.family, color: PLOTLY_FONT.color, size: 8 },
       margin: { t: 10, r: 20, l: 20, b: i === 0 ? 40 : 10 },
-      polar: { radialaxis: { showticklabels: true, tickfont: { size: 7 } } },
+      polar: { radialaxis: { showticklabels: true, tickfont: { size: 7 }, range: [0, SPIDER_MAX[nivel]], autorange: false } },
       showlegend: i === 0, legend: { orientation: 'h', y: -0.3, font: { size: 9 } },
     }, { responsive: true, displayModeBar: false });
   });
